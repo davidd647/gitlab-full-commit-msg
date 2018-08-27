@@ -4,8 +4,6 @@ console.log('🔥Thank you🔥 for running the GitLab Full Commit Message script
 
 var projectName = document.querySelector('.sidebar-context-title').innerText;
 
-console.log('gitlab-speech-tracker is on');
-// console.log('%c       \n      ', 'font-size: 100px; background: url(https://s8.favim.com/orig/141226/adventure-time-cartoon-finn-gif-Favim.com-2337968.gif) no-repeat;');
 
 var tracking = document.querySelector('.ci-running') ? true : false;
 var contentWrapper = document.querySelector('.content-wrapper');
