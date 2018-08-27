@@ -1,4 +1,6 @@
-console.log('🔥Thank you🔥 for running the GitLab Finn Notify script! The android 🤖 will notify you when the push has finished!');
+console.log('🔥Thank you🔥 for running the GitLab Full Commit Message script!');
+
+
 
 var projectName = document.querySelector('.sidebar-context-title').innerText;
 
@@ -11,38 +13,14 @@ var contentWrapper = document.querySelector('.content-wrapper');
 var contentObserver = new MutationObserver(function(mutationsList){
   // this code will display any mutations:
   // console.log(mutationsList);
+  
+	document.querySelectorAll('.flex-truncate-child').forEach((commitMessage) => {
+	  commitMessage.style.flex = "none";
+	});
 
-  if (!document.querySelector('.ci-running') && tracking){
-    tracking = false;
-    console.log('the thing is not running any more!');
-
-    //Speech synth tell user project done
-    var voices = speechSynthesis.getVoices();
-    var msg = new SpeechSynthesisUtterance();
-    msg.text =
-      'Notification: ' +
-      projectName +
-      ' has finished pushing';
-    msg.rate = 1.1;
-    msg.pitch = 0.25;
-    window.speechSynthesis.speak(msg);
-
-  }
-
-  if (document.querySelector('.ci-running') && !tracking){
-    tracking = true;
-    console.log('now tracking the thing!');
-
-    //Speech synth tell user project started
-    var voices = speechSynthesis.getVoices();
-    var msg = new SpeechSynthesisUtterance();
-    msg.text =
-      'Notification: a pipeline for ' + projectName + ' is now being tracked.';
-    msg.rate = 1.1;
-    msg.pitch = 0.5;
-    window.speechSynthesis.speak(msg);
-
-  }
+	document.querySelectorAll('.branch-commit').forEach((commitMessage) => {
+	  commitMessage.style.marginTop = "2rem";
+	});
 
 });
 
